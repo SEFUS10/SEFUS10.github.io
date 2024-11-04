@@ -28,14 +28,46 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <div class="bg-white py-16">
-        <div class="max-w-6xl mx-auto px-4">
-            <h1 class="text-4xl font-bold text-gray-800 mb-4">Seminario Estudiantes de Fisica Unison</h1>
-            <p class="text-gray-600 text-lg">Documentacion y recursos para participes del seminario</p>
+    <!-- Hero Section with Banner -->
+    <div class="relative bg-white">
+        <!-- Banner Image -->
+        <div class="w-full h-64 overflow-hidden">
+            <img src="/assets/images/banner.jpeg" alt="SEFUS Seminar Banner" class="w-full h-full object-cover">
+        </div>
+        
+        <!-- Hero Content overlaying the banner -->
+        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center">
+            <div class="max-w-6xl mx-auto px-4 text-white">
+                <h1 class="text-4xl font-bold mb-4">Seminario Estudiantes de Fisica Unison</h1>
+                <p class="text-xl">Documentacion y recursos para los participantes del seminario</p>
+            </div>
         </div>
     </div>
 
+
+    <!-- Time and Location Section -->
+    <div class="bg-gray-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-12">
+                <div class="flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span class="text-xl">Los Martes de 4 a 5 pm</span>
+                </div>
+                <div class="flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    <span class="text-xl">Auditorio de Física</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
     <!-- Sessions Section -->
     <div id="sessions" class="max-w-6xl mx-auto px-4 py-12">
         <h2 class="text-3xl font-bold text-gray-800 mb-8">Session Materials</h2>
@@ -70,7 +102,7 @@
 	    </div>           
 	    <!-- Session Card Template -->
 	    <div class="bg-white p-6 rounded-lg shadow-md">
-	      <h3 class="text-xl font-semibold mb-2">Sesion 1</h3>
+	      <h3 class="text-xl font-semibold mb-2">Sesion 2</h3>
 	      <p class="text-gray-600 mb-4">Electromagnetismo como una teoria de Gauge</p>
 	      <div class="space-y-2">
 		<!-- Link to PDF in your repository -->
@@ -152,7 +184,7 @@
     <footer class="bg-gray-800 text-white py-8">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center">
-                <p>© 2024 SEFUS Seminar. All rights reserved.</p>
+                <p>© 2024 SEFUS. All rights reserved.</p>
             </div>
         </div>
     </footer>
