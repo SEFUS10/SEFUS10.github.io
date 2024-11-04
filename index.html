@@ -1,1 +1,112 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEFUS Seminar Documentation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="#" class="flex items-center py-4">
+                            <span class="font-semibold text-gray-800 text-lg">SEFUS Seminar</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <a href="#" class="py-2 px-2 text-gray-700 hover:text-gray-900">Home</a>
+                    <a href="#sessions" class="py-2 px-2 text-gray-700 hover:text-gray-900">Sessions</a>
+                    <a href="#schedule" class="py-2 px-2 text-gray-700 hover:text-gray-900">Schedule</a>
+                    <a href="#resources" class="py-2 px-2 text-gray-700 hover:text-gray-900">Resources</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-white py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">Welcome to SEFUS Seminar</h1>
+            <p class="text-gray-600 text-lg">Documentation and resources for seminar participants</p>
+        </div>
+    </div>
+
+    <!-- Sessions Section -->
+    <div id="sessions" class="max-w-6xl mx-auto px-4 py-12">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8">Session Materials</h2>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Session Card Template -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-2">Session 1</h3>
+                <p class="text-gray-600 mb-4">Introduction and Overview</p>
+                <div class="space-y-2">
+                    <a href="#" class="block text-blue-600 hover:underline">📑 Presentation Slides</a>
+                    <a href="#" class="block text-blue-600 hover:underline">📝 Session Notes</a>
+                    <a href="#" class="block text-blue-600 hover:underline">🎥 Recording (if available)</a>
+                </div>
+            </div>
+            
+            <!-- Add more session cards as needed -->
+        </div>
+    </div>
+
+    <!-- Schedule Section -->
+    <div id="schedule" class="bg-gray-100 py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">Upcoming Sessions</h2>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b">
+                            <th class="text-left py-2">Date</th>
+                            <th class="text-left py-2">Topic</th>
+                            <th class="text-left py-2">Presenter</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b">
+                            <td class="py-2">TBD</td>
+                            <td class="py-2">Session Topic</td>
+                            <td class="py-2">Presenter Name</td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resources Section -->
+    <div id="resources" class="max-w-6xl mx-auto px-4 py-12">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8">Additional Resources</h2>
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <ul class="space-y-4">
+                <li>
+                    <a href="#" class="text-blue-600 hover:underline">📚 Reading Materials</a>
+                </li>
+                <li>
+                    <a href="#" class="text-blue-600 hover:underline">🔗 Useful Links</a>
+                </li>
+                <li>
+                    <a href="#" class="text-blue-600 hover:underline">📖 Reference Documents</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center">
+                <p>© 2024 SEFUS Seminar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

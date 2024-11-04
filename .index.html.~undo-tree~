@@ -1,0 +1,48 @@
+(undo-tree-save-format-version . 1)
+"cdfc47abc0d19d873634ba10c2b93e7467c6f640"
+[nil nil nil nil (26408 10154 206996 757000) 0 nil]
+([nil nil ((nil rear-nonsticky nil 955 . 956) (nil fontified nil 13 . 956) (13 . 956) (t 26408 10010 628040 992000)) nil (26408 10154 206993 474000) 0 nil])
+([nil nil ((#("Hello World
+" 0 12 (fontified t)) . 1) (undo-tree-id22 . -12) (undo-tree-id23 . -12) (undo-tree-id24 . -12) (undo-tree-id25 . -12) (undo-tree-id26 . -12) (undo-tree-id27 . -12) (undo-tree-id28 . -12) (undo-tree-id29 . -11) (undo-tree-id30 . -12) (undo-tree-id31 . -12)) nil (26408 10154 206990 191000) 0 nil])
+([nil nil ((#("\\documentclass{beamer}
+
+% Set up the basic theme
+\\usepackage{amsmath} % For mathematical symbols
+\\usepackage{lmodern} % For a clean font look
+
+% Minimal theme settings
+\\setbeamertemplate{navigation symbols}{} % No navigation bar
+\\setbeamertemplate{footline}{} % No footer
+\\setbeamertemplate{headline}{} % No header
+\\setbeamertemplate{frametitle}{} % No frame title styling
+
+% Background and text color
+\\setbeamercolor{background canvas}{bg=white}
+\\setbeamercolor{normal text}{fg=black}
+
+% Define a custom frame style for centered content
+\\newenvironment{centeredframe}
+  {\\begin{frame}\\vspace{0.25\\textheight}\\centering} % Vertical centering
+  {\\vspace{0.25\\textheight}\\end{frame}}
+
+\\begin{document}
+
+% Slide example
+\\begin{centeredframe}
+    \\Huge % Increase font size
+    This is a minimalist slide
+\\end{centeredframe}
+
+\\begin{centeredframe}
+    \\Huge
+    Here is an equation: 
+    \\[
+    E = mc^2
+    \\]
+\\end{centeredframe}
+
+\\end{document}
+" 0 22 (fontified t) 22 23 (fontified t) 23 942 (fontified t) 942 943 (fontified t rear-nonsticky t)) . 1) (undo-tree-id0 . -717) (undo-tree-id1 . -943) (undo-tree-id2 . -942) (undo-tree-id3 . -943) (undo-tree-id4 . -943) (undo-tree-id5 . -943) (undo-tree-id6 . -943) (undo-tree-id7 . -943) (undo-tree-id8 . -943) (undo-tree-id9 . -943) (undo-tree-id10 . -22) (undo-tree-id11 . -943) (undo-tree-id12 . -943) (undo-tree-id13 . -943) (undo-tree-id14 . -943) (undo-tree-id15 . -943) (undo-tree-id16 . -943) (undo-tree-id17 . -943) (undo-tree-id18 . -943) (undo-tree-id19 . -943) (undo-tree-id20 . -943) (undo-tree-id21 . -943) 944) nil (26408 10154 206982 90000) 0 nil])
+([nil nil ((nil rear-nonsticky nil 4713 . 4714) (nil fontified nil 1 . 4714) (1 . 4714)) nil (26408 10154 206925 588000) 0 nil])
+([nil current ((4714 . 4715) 4713) nil (26408 10154 206919 93000) 0 nil])
+nil
