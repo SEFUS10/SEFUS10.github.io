@@ -1,0 +1,846 @@
+\documentclass{beamer}
+
+% Implementado
+
+\usepackage{geometry, amssymb, amsmath, dsfont}
+%Paquete de física
+\usepackage{physics}
+%Cambiar formato de titulos, secciones, capitulos
+\usepackage{titlesec}
+% Paquete de interlineado
+\usepackage{setspace}
+% Introducir un índice
+\usepackage{makeidx}
+% Paquete de estilo de paginas
+\usepackage{titleps}
+% Texto justificado
+\usepackage{ragged2e}
+% Fuente
+%\usepackage{fontspec}
+
+
+% Interlineado
+\setlength{\parskip}{2.5pt}
+
+
+% En el contexto de la mecanica cuantica, se necesita un operador que identifique a vectores, siendo \vop{}
+\newcommand{\vop}[1]{\hat{\vb{#1}}}
+% En el contexto de la geometría, se necesita expresar a los vectores con otra notación, siendo \vbs{}
+\newcommand{\vbs}[1]{\va{\boldsymbol{#1}}}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+% Flechas
+\newcommand{\up}{\uparrow}
+\newcommand{\dn}{\downarrow}
+
+
+% Set up the basic theme
+\usepackage{lmodern} % For a clean font look
+% Fuente
+%\setmainfont{CMU Serif}
+
+% Minimal theme settings
+\setbeamertemplate{navigation symbols}{} % No navigation bar
+\setbeamertemplate{footline}{} % No footer
+\setbeamertemplate{headline}{} % No header
+%\setbeamertemplate{frametitle}{} % No frame title styling
+
+% Background and text color
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{frametitle}{fg=black}
+\setbeamercolor{normal text}{fg=black}
+
+% Define a custom frame style for centered content
+\newenvironment{centeredframe}
+  {\begin{frame}\vspace{0.25\textheight}\centering} % Vertical centering
+  {\vspace{0.25\textheight}\end{frame}}
+\newenvironment{normalframe}
+  {\begin{frame}\justifying} % Vertical centering
+  {\end{frame}}
+
+\begin{document}
+
+% Slide example
+\begin{centeredframe}
+    \Huge % Increase font size
+    SEFUS
+    
+    \Large
+    (Seminario de Estudiantes de Física de la Universidad de Sonora)
+
+    \vspace{0.5cm}
+
+    \large
+    Ecuaciones del campo electromagnético con el principio de mínima acción
+
+    Alfredo Armendáriz Espinoza
+
+    Noviembre 2024
+\end{centeredframe}
+
+\begin{centeredframe}
+    \LARGE
+    Here is an equation: 
+    \[
+      \epsilon^{iklm}\pdv{F_{lm}}{x^k} = 0 \qquad \pdv{F^{ik}}{x^k} = -\frac{4\pi}{c}j^i
+    \]
+\end{centeredframe}
+
+% Frame 1 
+\begin{normalframe}
+  \frametitle{\textbf{El Principio de Mínima Acción}}
+  
+  \only<1>{
+  
+  El principio de mínima acción establece que hay una cantidad llamada acción \( S \) que durante el estado de movimiento de una partícula esta es mínima y su variación es cero.
+  
+  \[ S = \int \mathcal{L} \, \dd{t} \]
+  \[ \var S = \int \var \mathcal{L} \, \dd{t}  = 0\]
+  
+  Donde \( \mathcal{L}: \mathcal{L}(t,q,\dot{q}) \) es una función que depende del tiempo \( t \), las coordenadas generalizadas \( q \) y las velocidades generalizadas \( \dot{q} \)
+  En la mecánica clásica, el tiempo es absoluto en cualquier sistema de referencia ante transformaciones galileanas.
+}
+
+\only<2>{
+  De aquí las ecuaciones de movimiento se obtienen al desarrollar la variación de la acción
+  
+  \[ \dv{t}\pdv{\mathcal{L}}{\dot{q}} - \pdv{\mathcal{L}}{q} = 0 \]
+  
+  Explícitamente, la función Lagrangiana es:
+  
+  \[ \mathcal{L} = T-V \]
+  
+  Donde \( T \) es la energía cinética y \( V \) es la energía potencial del sistema.
+}
+\end{normalframe}
+
+
+\begin{normalframe}
+  \frametitle{\textbf{El Principio de Mínima Acción en la relatividad especial}}
+  
+  \only<1> {
+    Ahora en la mecánica relativista la cantidad absoluta en cualquier sistema de referencia ante transformaciones de Lorentz, este es el intervalo \( \dd{s} \), para trayectorias de partículas que no son luz, su cuadrado es una cantidad definida positiva.
+    
+    \[ \dd{s}^2 = c^2\dd{t}^2 -\dd{x}^2 -\dd{y}^2 -\dd{z}^2 \]
+    
+    Aquí hay una relación entre el intervalo y el tiempo
+    
+    \[ \dd{s} = c\,\dd{t} \sqrt{1- \frac{v^2}{c^2}} \]
+  }
+  
+  
+  \only<2>{
+    
+    Así, la acción para una partícula libre de fuerzas es:
+  
+    \[ S = -\alpha \int \dd{s} \]
+    
+    El signo negativo se entiende porque al integrar el intervalo, se hace a la vez se integra al tiempo, que en un sistema de referencia propio de la partícula, este se encuentra en reposo, siendo un tiempo propio máximo, y al querer que la acción sea mínima se tiene el signo negativo.
+  }
+  
+  
+  
+  \only<3>{
+    Así, al ver a la acción como función del tiempo se tiene
+    
+    \[ S = - \alpha \int c  \sqrt{1-\frac{v^2}{c^2}} \dd{t}  \]
+    
+    La funcion Lagrangiana es
+    
+    \[ \mathcal{L} = -\alpha c \sqrt{1-\frac{v^2}{c^2}} \]
+  }
+  
+  
+  \only<4>{
+    Tomando el límite a la mecánica clásica, es decir, considerando a \( c\to \infty \) se hace una serie de potencias de \( v^2/c^2 \) con el teorema del binomio de Newton
+    
+    \[ (a+b)^n = \sum_{k=0}^n \pmqty{n\\k}a^{n}b^{n-k} =\sum_{k=0}^n \frac{n!}{(n-k)!k!}a^{n}b^{n-k}   \]
+    
+    La función Lagrangiana es aproximadamente
+    
+    \[ \mathcal{L} \approx -c\alpha + \alpha \frac{1}{2}\frac{v^2}{c}  \]
+    
+    Donde \( \alpha = mc \)
+  }  
+  
+  \only<5>{
+    Así la acción es:
+    
+    \[ S = -mc\int \dd{s} \]
+    
+    Y la función Lagrangiana para una partícula libre
+    
+    \[ \mathcal{L} = -mc^2\sqrt{1-\frac{v^2}{c^2}} \]
+    
+  }
+  
+\end{normalframe}
+
+\begin{normalframe}
+
+  \frametitle{\textbf{Cantidades cuatro-dimensionales}}
+  \only<1>{
+
+    Con la relatividad especial se facilita trabajar con cantidades llamadas cuatro-vectores
+    
+    Radio cuatro-vector
+
+    \[ x^i = \pmqty{ ct & x & y & z} \qquad \qty( \text{contravariante} )\]
+    \[ x^i = \qty( ct, \vb{r}) \]
+    
+    \[ x_i = \pmqty{ ct & -x & -y & -z} \qquad \qty( \text{covariante} )\]
+    \[ x_i = \qty( ct, -\vb{r}) \]
+    
+    Velocidad cuatro-vector
+
+    \[ u^i = \dv{x^i}{s} \]
+  }
+  \only<2>{
+    Con esto, se introduce el producto interior y el convenio de suma de Einstein
+
+    \[ \dd{s}^2 = c^2 \dd{t}^2 - \dd{x}^2 - \dd{y}^2 - \dd{z}^2 \]
+    
+    \[ \dd{s}^2 = \sum_i \dd{x_i}\dd{x^i} = \dd{x_i}\dd{x^i} \]
+
+    O bien
+
+    \[ \dd{s}^2 = g_{ik}\dd{x^i}\dd{x^k} \]
+
+    \[ \dd{s}^2 = \pmqty{c\dd{t} & \dd{x} & \dd{y} & \dd{z}} \pmqty{1 & 0 & 0 & 0 \\ 0 &-1 & 0 & 0 \\ 0 & 0 &-1 & 0 \\ 0 & 0 & 0 &-1 } \pmqty{c\dd{t} \\ \dd{x} \\ \dd{y} \\ \dd{z}} \]
+  }
+\end{normalframe}
+
+\begin{normalframe}
+  
+  \frametitle{\textbf{Cuatro-Potencial}}
+  
+  \only<1>{
+    
+    La accion para una particula en un campo electromagnetico tiene dos partes: la accion para la particula libre y un termino describiendo la interaccion de la particula con el campo. Este segundo termino debe contener cantidades caracterizando a la particula y cantidades caracterizando al campo.
+    
+    Entonces la funcion accion para una carga en un campo electromagnetico tiene la forma 
+
+    \[ S = S_m + S_{mf} \]
+    \[S = \int_a^b \qty(-mc \dd{s} - \frac{e}{c}A_i \dd{x^i})\]
+    
+  }
+  
+  
+  \only<2>{
+    
+    Las tres componentes espaciales del cuatro-vector \(A^i\) forman un vector tridimensional \(\vb{A}\) llamado \textbf{potencial vectorial del campo}. La componente temporal se llama \textbf{potencial vectorial}; lo denotamos por \( A^0 = \phi \), entonces
+    
+  }
+  
+  
+  \only<2-4>{\[ A^i = (\phi , \vb{A}) \]}
+  
+  \vspace{0.5cm}
+  
+  \only<3>{La integral de accion se escribe de la forma
+    
+
+    \[ S = \int_a^b \qty(-mc \dd{s} + \frac{e}{c} \vb{A} \cdot \dd{r} - e\phi \dd{t}) \] }
+
+  \only<4>{Introduciendo \(\dv{r}{t} = \vb{v} \), y cambiando a una integral sobre \(t\),
+  }
+  
+  \only<4-5>{\[S = \int_{t_1}^{t_2} \qty(-mc^2 \sqrt{1-\frac{v^2}{c^2}} + \frac{e}{c}\vb{A}\cdot\vb{v} - e\phi)\dd{t} \]}
+
+  \only<5>{El integrando es la Lagrangiana para una carga en un campo electromagnetico
+    
+    
+  }
+  
+  \only<5-8>{\[ \mathcal{L} = -mc^2 \sqrt{1- \frac{v^2}{c^2}} + \frac{e}{c}\vb{A}\cdot \vb{v} - e\phi \]
+    
+  }
+  
+  \only<6>{
+    Esta funcion difiere de la Lagrangiana para una particula libre, por los terminos \((e/c)\vb{A}\cdot\vb{v} - e\phi \), que describe la interacion de la carga con el campo
+  }
+  
+  \only<7>{
+    
+    De la Lagrangiana se encuentra la funcion Hamiltoniana con la formula general
+    
+    \[\mathcal{H} = \vb{v} \cdot \pdv{\mathcal{L}}{\vb{v}} - \mathcal{L} \]
+    
+  }
+  
+  \only<8>{
+    
+    Donde, al sustituir se obtiene
+    
+    
+  }
+  
+  \only<8-9>{
+    
+    \[\mathcal{H} = \frac{mc^2}{\sqrt{1- \frac{v^2}{c^2}}} + e\phi \]
+    
+  }
+  
+  \only<9>{
+
+    \[\mathcal{H} = E + e\phi \]
+    
+    Pero la Hamiltoniana debe estar expresada en terminos del momento generalizado de la particula, que se obtiene de la derivada \(\pdv{\mathcal{L}}{\vb{v}} \)
+    
+    \[\pdv{\mathcal{L}}{\vb{v}} = \vb{P} = \frac{m \vb{v} }{\sqrt{1-\frac{v^2}{c^2}}} + \frac{e}{c}\vb{A} = \vb{p} + \frac{e}{c}\vb{A} \]
+    
+    \[\vb{P} = \vb{p} + \frac{e}{c} \vb{A} \]
+    
+  }
+  
+  \only<10>{
+    
+    De estas dos ultimas expresiones, se obtiene
+    
+    \[\mathcal{H} - e \phi \qq{} \text{Energia libre relativista} \]
+    
+    \[\vb{P} - \frac{e}{c}\vb{A} \qq{} \text{Momento ordinario} \]
+    
+    por lo que satisfacen la misma relacion entre \(\mathcal{H}\) y \(\vb{p} \) en la ausencia de un campo
+    
+  }
+  
+  \only<11>{
+    
+    En la ausencia de un campo, se tiene
+    
+    \[\mathcal{H}^2 = (mc^2)^2 + (\vb{p}c)^2 \]
+    
+    entonces, en su presencia, la relacion se convierte en
+    
+    \[ (\mathcal{H}-e\phi)^2 = m^2 c^4 + \qty(\vb{P}-\frac{e}{c}\vb{A})^2 \]
+    
+    \[\mathcal{H} = \sqrt{m^2c^4 +c^2 \qty(\vb{P}-\frac{e}{c}\vb{A})^2} +e\phi \]
+    
+  }
+  
+  \only<12>{
+    En el limite no relativista:
+    
+    \[\mathcal{L} = \frac{mv^2}{2} + \frac{e}{c} \vb{A} \cdot \vb{v} - e\phi \]
+    
+    \[\mathcal{H} = \frac{1}{2m}\qty(\vb{P}-\frac{e}{c}\vb{A})^2 + e\phi \]
+    
+  }
+  
+\end{normalframe}
+
+
+
+
+
+\begin{normalframe}
+  \frametitle{\textbf{Ecuacion de una carga en un campo}}
+
+ \only<1>{
+ Para encontrar las ecuaciones de movimiento de una carga dentro de un campo electromagnetico debemos variar la accion, i.e. estan dadas por las ecuaciones de Lagrange
+
+ \[\dv{t}(\pdv{\mathcal{L}}{\vb{v}}) = \pdv{\mathcal{L}}{\vb{r}} \]
+
+ donde \(\mathcal{L}\) esta dada por
+
+ 
+ }
+
+ \only<1-2>{
+ \[\mathcal{L} = -mc^2 \sqrt{1-\frac{v^2}{c^2}} + \frac{e}{c}\vb{A}\cdot\vb{v} - e\phi \]
+ }
+
+ \only<2>{
+
+ La derivada \(\pdv{\mathcal{L}}{\vb{v}}\) es el momento generalizado de la particula. Luego escribimos
+
+ \[\pdv{\mathcal{L}}{\vb{r}} = \nabla \mathcal{L} = \frac{e}{c} \nabla \vb{A}\cdot \vb{v} - e \nabla \phi \]
+ 
+ }
+
+\only<3>{
+ El gradiento del producto interno de dos vectores es
+
+ \[\nabla(\vb{A}\cdot \vb{v}) = (\vb{A}\cdot\nabla)\vb{v} + (\vb{v}\cdot\nabla)\vb{A} + \vb{v}\cross \nabla \cross \vb{A} +\vb{A}\cross \nabla \cross \vb{v} \]
+
+ para \(\vb{v}\) que no depende de la posición
+
+ \[\pdv{\mathcal{L}}{\vb{r}} = \frac{e}{c}(\vb{v} \cdot \nabla ) \vb{A} + \frac{e}{c}\vb{v}\cross \nabla \cross \vb{A} - e\nabla \phi \]
+ 
+}
+
+\only<4>{
+
+Por lo que la ecuacion de Lagrange tiene la forma 
+
+\[\dv{t}(\vb{p} + \frac{e}{c}\vb{A}) = \frac{e}{c}(\vb{v}\cdot\nabla)\vb{A} + \frac{e}{c}\vb{v}\cross \nabla \cross \vb{A} - e \nabla \phi \]
+
+luego la derivada total del potencial vectorial con respecto al tiempo es
+
+\[\dv{\vb{A}}{t} = \pdv{\vb{A}}{t} + (\vb{v} \cdot \nabla) \vb{A} \]
+
+}
+
+\only<5>{
+
+Entonces la ecuacion de Lagrange queda
+
+\[\dv{\vb{p}}{t} = - \frac{e}{c}\pdv{\vb{A}}{t} - e\nabla \phi + \frac{e}{c}\vb{v} \cross \nabla \cross \vb{A} \]
+
+}
+
+\only<6>{
+
+El primer termino, por unidad de carga, se llama la intensidad de campo electrico
+
+\[\vb{E} = - \frac{1}{c}\pdv{\vb{A}}{t} - \nabla \phi \]
+
+El factor que acompana a \(\frac{\vb{v}}{c}\) en el segundo termino, por unidad de carga, se llama intensidad de campo magnetico
+
+\[\vb{H} = \nabla \cross \vb{A} \]
+
+}
+
+\only<7>{
+
+En un campo electromagnetico, si \(\vb{E} \neq 0 \), pero \(\vb{H} = 0 \), entonces hablamos de un campo electrico; si \(\vb{E} = 0 \), pero \(\vb{H}\neq 0\), entonces el campo se dice ser magnetico. En general, el campo electromagnetico es la superposicion de campos electricos y magneticos
+
+}
+
+\only<8>{
+
+Ahora podemos escribir la ecuacion de movimiento de una carga en un campo electromagnetico 
+
+\[\dv{\vb{p}}{t} = e \vb{E} + \frac{e}{c} \vb{v} \cross \vb{H} \]
+
+esta expresion se llama \textit{Fuerza de Lorentz}
+
+}
+
+    
+\end{normalframe}
+
+
+\begin{normalframe}
+  \frametitle{\textbf{El tensor de campo Electromagnetico}}
+  
+  \only<1>{
+    
+    Ahora se obtendra la ecuacion de movimiento de una carga en un campo directamente de la accion en notacion cuatro-dimensional.
+    Del principio de la minima accion
+    
+  }
+  
+  \only<1-2>{
+    \[\delta S = \delta \int_a^b \qty(-mc\dd{s} - \frac{e}{c}A_i\dd{x^i}) = 0 \]
+  }
+  
+  
+  \only<2>{
+    Con \(\dd{s} = \sqrt{\dd{x_i}\dd{x^i}} \), encontramos (omitiendo los limites de integracion por brevedad)
+    
+    \[
+      \delta S = - \int \qty(mc \frac{\dd{x_i} \dd{\delta x^i}}{\dd{s}} + \frac{e}{c}A_i\dd{\delta x^i} + \frac{e}{c}\delta A_i\dd{x^i}) = 0 
+    \]
+    
+    Donde se uso \( u_i = \dv*{x^i}{s} \)
+
+    También \( \dd{s} = \dd{s} \dv{s}{s} = \sqrt{\dd{x_i}\dd{x^i}}\frac{\sqrt{\dd{x_i}\dd{x^i}}}{\dd{s}} = \frac{\dd{x_i}\dd{x^i}}{\dd{s}} = u_i \dd{x^i} \)
+    
+  }
+  
+  \only<3>{
+
+    \[ \delta S = - \int \qty(mc \; u_i \dd{\delta x^i} + \frac{e}{c}A_i\dd{\delta x^i} + \frac{e}{c}\delta A_i\dd{x^i}) = 0 \]
+
+    Integrando por partes los primeros dos términos se tiene:
+
+    \[ - \qty[ \qty( mc \, u_i + \frac{e}{c} A_i ) \delta x^i ] + \int \qty( mc \, \dd{u^i} \delta x^i + \frac{e}{c} \delta x^i \dd{A_i} - \frac{e}{c} \delta A_i \dd{x^i} ) = 0 \]
+
+    El primer término es cero al evaluar la variación de \( x^i \) en los extremos.
+    
+  }
+
+  \only<4>{
+
+    \[ \int \qty( mc \, \dd{u^i} \delta x^i + \frac{e}{c} \delta x^i \dd{A_i} - \frac{e}{c} \delta A_i \dd{x^i} ) = 0 \]
+
+    Se tienen diferenciales y variaciones del cuatro-potencial, siendo
+
+    \[ \delta A_i = \pdv{A_i}{x^k}\delta x^k , \quad \dd{A_i} = \pdv{A_i}{x^k}\dd{x^k} \]
+
+    Sustituyendo
+
+    \[ \int \qty( mc \, \dd{u^i} \delta x^i + \frac{e}{c} \pdv{A_i}{x^k}\dd{x^k} \delta x^i - \frac{e}{c} \pdv{A_i}{x^k} \dd{x^i}\delta x^k ) = 0 \]
+   
+  }
+  \only<5>{
+
+    \[ \int \qty( mc \, \dd{u^i} \delta x^i + \frac{e}{c} \pdv{A_i}{x^k}\dd{x^k} \delta x^i - \frac{e}{c} \pdv{A_i}{x^k} \dd{x^i}\delta x^k ) = 0 \]
+
+    Se integrará en \( \dd{s} \), por lo que \( \dd{u_i} = \qty(\dv*{u_i}{s}) \dd{s} \), también \( \dd{x^i} = u^i \dd{s} \) y por útlimo en el tercer término se intercambian los índices (no afecta)
+
+    \[ \int \qty[ mc \, \dv{u^i}{s} - \frac{e}{c} \qty( \pdv{A_k}{x^i} - \pdv{A_i}{x^k} ) u^k ] \delta x^i \dd{s} = 0 \]
+
+  }
+  \only<6>{
+    Así, lo que se encuentra en el corchete es cero, ya que puede \( \delta x^i \) es arbitrario, quedando
+
+    \[ mc \, \dv{u^i}{s} = \frac{e}{c} \qty( \pdv{A_k}{x^i} - \pdv{A_i}{x^k} ) u^k \]
+
+    Introduciendo la notación
+
+    \[ F_{ik} =  \pdv{A_k}{x^i} - \pdv{A_i}{x^k} \]
+
+    Es antisimétrico
+  }
+  \only<7>{
+    Siendo explícitos, con \( i = 0, \, k =1 \)
+
+    \[ F_{01} = \pdv{A_1}{x^0} - \pdv{A_0}{x^1} = \frac{1}{c}\pdv{A_1}{t} - \pdv{\phi}{x} = E_x \]
+
+    Generalizando con \( k=1,2,3 \) como si fuera un vector
+
+    \[ F_{0k} = \pdv{A_k}{x^0} - \pdv{A_0}{x^k} = \frac{1}{c}\pdv{\vb{A}}{t} - \nabla \phi = \vb{E}\]
+
+    \vspace{0.5cm}
+
+    Es decir, el primer renglón contiene a las componentes del campo eléctrico
+    
+  }
+  \only<8>{
+    Ahora con \( i = 1, k=2 \)
+
+    \[ F_{12} = \pdv{A_2}{x^1} - \pdv{A_1}{x^2} = \pdv{A_2}{x} - \pdv{A_1}{y} = H_z\]
+
+    Con \( i = 1, k= 3 \)
+    
+    \[ F_{13} = \pdv{A_3}{x^1} - \pdv{A_1}{x^3} = \pdv{A_3}{x} - \pdv{A_1}{z} = - H_y\]
+    
+  }
+  \only<9>{
+    Se representa de forma matricial con el índice \( i=0,1,2,3 \) como renglones y el índice \( k=0,1,2,3 \) como columnas
+    \small
+    \[ F_{ik} =
+      \pmqty{
+      0    & E_x & E_y  & E_z  \\
+      -E_x & 0   &-H_z  & H_y  \\
+      -E_y & H_z & 0    &-H_x  \\
+      -E_z &-H_y & H_x  & 0    \\} \qquad
+    F^{ik} =
+    \pmqty{
+      0   &-E_x &-E_y  &-E_z  \\
+      E_x & 0   &-H_z  & H_y  \\
+      E_y & H_z & 0    &-H_x  \\
+      E_z &-H_y & H_x  & 0    \\}
+  \]
+
+  O bien
+
+  \[ F_{ik} = \qty(\vb{E},\vb{H}) \qquad  F^{ik} = \qty(-\vb{E},\vb{H}) \]
+  }
+
+\end{normalframe}
+
+
+
+
+\begin{normalframe}
+
+  \frametitle{\textbf{El primer par de ecuaciones de Maxwell}}
+
+  \only<1-2>{
+
+    De las expresiones
+    \[ \vb{H} = \nabla \cross \vb{A} \]
+
+    \[ \vb{E} = -\frac{1}{c}\pdv{\vb{A}}{t} - \nabla \phi \]
+  }
+  \only<1>{
+    Se les obtiene su divergencia y rotacional respectivamente, para el campo magnético:
+
+    \[ \nabla \cdot \vb{H} = \nabla \cdot \qty( \nabla \cross \vb{A}) = 0 \]
+
+    \[ \nabla \cdot \vb{H} = 0 \]
+
+  }
+  \only<2>{
+    Para el campo eléctrico:
+    
+    \[ \nabla \cross \vb{E} = -\frac{1}{c} \pdv{t} \qty(\nabla \cross \vb{A}) - \nabla \cross \qty(\nabla \phi)\]
+
+    \[ \nabla \cross \vb{E} = -\frac{1}{c}\pdv{\vb{H}}{t} \]
+  }
+  \only<3>{
+    Usando notación cuatro-dimensional y la definición del tensor del campo electromagnético
+
+    \[ F_{ik} = \pdv{A_k}{x^i} - \pdv{A_i}{x^k} \]
+
+    Se puede verificar que la siguiente suma se cumple
+
+    \[ \pdv{F_{ik}}{x^l} + \pdv{F_{kl}}{x^i} + \pdv{F_{li}}{x^k} = 0 \]
+
+    Es un tensor de rango tres antisimétrico.
+  }
+  \only<4>{
+    Multiplicando por el tensor antisimétrico de rango cuatro \( \epsilon^{iklm} \) se puede simplificar la suma
+    \[ \epsilon^{iklm}\pdv{F_{lm}}{x^k} = 0 \]
+  }
+  \only<5>{
+    \[ \pdv{F_{ik}}{x^l} + \pdv{F_{kl}}{x^i} + \pdv{F_{li}}{x^k} = 0 \]
+    
+    Si se suma para \( l = 0 \) y \(  \) se tiene la ecuación de Maxwell con la derivada temporal
+
+    \[ \pdv{F_{12}}{x^0} + \pdv{F_{20}}{x^1} + \pdv{F_{01}}{x^2} = \frac{1}{c}\pdv{H_z}{t} - \pdv{E_y}{x} + \pdv{E_x}{y} = 0 \]
+
+    \[ \pdv{E_x}{y} - \pdv{E_y}{x} = - \frac{1}{c}\pdv{H_z}{t} \]
+
+    \[ \nabla \cross \vb{E} = - \frac{1}{c}\pdv{\vb{H}}{t} \]
+  }
+  \only<6>{
+    \[ \pdv{F_{ik}}{x^l} + \pdv{F_{kl}}{x^i} + \pdv{F_{li}}{x^k} = 0 \]
+
+    Si en los indices no se incluye a la parte temporal, se tiene la ecuación de Maxwell que solo tiene cambios espaciales
+    \[ \pdv{F_{12}}{x^3} + \pdv{F_{23}}{x^1} + \pdv{F_{31}}{x^2} = -\pdv{H_z}{z} - \pdv{H_x}{x} - \pdv{H_y}{y} = 0 \]
+    
+    \[ \pdv{H_x}{x} + \pdv{H_y}{y} + \pdv{H_z}{z} = 0 \]
+    
+    \[ \nabla \cdot \vb{H} = 0 \]
+   
+  }
+  \only<7>{
+    Así, se tiene el primer par de ecuaciones de Maxwell
+    
+    \[ \epsilon^{iklm}\pdv{F_{lm}}{x^k} = 0 \]
+    
+    \[ \Downarrow \]
+    
+    \[ \nabla \cross \vb{E} = - \frac{1}{c}\pdv{\vb{H}}{t} \]
+
+    \[ \nabla \cdot \vb{H} = 0 \]
+  }
+\end{normalframe}
+
+
+
+
+
+\begin{normalframe}
+
+  \frametitle{\textbf{La función de la acción del campo electromagnético}}
+
+  \only<1>{
+    La acción \( S \) consiste en tres partes, la partícula, la partícula localizada en el campo y del mismo campo.
+    
+    \[ S = S_m + S_{mf} + S_f \]
+    
+    La acción de la partícula
+    
+    \[ S_m = - mc \int \dd{s} \]
+    
+    La acción de la partícula en el campo electromagnético
+    
+    \[ S_{mf} = -\frac{e}{c} \int A_k \dd{x^k} \]
+  }
+
+  \only<2>{
+    La parte de la acción del campo electromagnético debe describir a las propiedades del campo por sí mismo, es decir, la acción de un campo en la ausencia de cargas.
+
+    \vspace{0.5cm}
+    
+    La forma de la acción del campo electromagnético depende del principio de superposición porque las ecuaciones del campo deben ser ecuaciones diferenciales lineales.
+
+    \vspace{0.5cm}
+
+    El integrando debe ser una expresión cuadrática del campo, análogamente como lo es el cuadrado de la velocidad para una partícula.
+    
+    
+  }
+
+  \only<3>{
+    Los potenciales tampoco pueden estar explícitamente debido a que no se determinan por una sola cantidad (principio de invarianza de norma)
+
+    \[ A'_k = A_k -\pdv{f}{x^k} \]
+
+    \[ \vb{A}' = \vb{A} + \nabla f , \qquad \phi' = \phi - \frac{1}{c} \pdv{f}{t} \]
+
+    Así, la acción debe ser integral de alguna función escalar de \( F_{ik} \), la unica cantidad es el producto \( F_{ik}F^{ik} \)
+  }
+  \only<4>{
+    La función de la acción del campo electromagnético tiene la forma
+
+    \[ s_f = \beta \frac{1}{c} \int F_{ik}F^{ik} \dd{V} c \dd{t}  \]
+
+    Nota: este factor \( F_{ik}F^{ik} = 2\qty(H^2-E^2) \)
+
+    El valor numérico de \( \beta = -\frac{1}{16\pi} \), esto es por el sistema de unidades de Gauss y de Heaviside
+  }
+  \only<5>{
+    La acción \( S_f \)
+
+    \[ S_f = -\frac{1}{16\pi c} \int F_{ik}F^{ik} \dd{\Omega} \]
+
+    Donde la lagrangiana es una densidad
+
+    \[ \mathcal{L}_f = \frac{1}{8\pi} \int \qty(E^2-H^2) \dd{V} \]
+  }
+  \only<6>{
+    La acción completa queda
+
+    \[ S = -\int mc \dd{s} - \int \frac{e}{c} A_k \dd{x^k} - \frac{1}{16\pi c} \int F_{ik}F^{ik} \dd{\Omega} \]
+  }
+\end{normalframe}
+
+
+
+
+\begin{normalframe}
+  \frametitle{\textbf{La función de corriente cuatro-dimensional}}
+  
+  \only<1>{
+    Cuando se trata a las cargas como puntos se tiene matemáticamente la función delta \( \delta \). Así, se tiene una densidad de carga \( \varrho \) en el espacio que es:
+    \[ \varrho = \sum_a e_a \delta(\vb{r}-\vb{r}_a) \]
+    
+    La carga es una propiedad invariante pues es intrínseca de las partículas, al maniobrar las cargas se tiene
+    
+    \[ e \dd{x^i} = \varrho \dd{x^i} \dd{V} \]
+    
+    Reescribiendo por un factor \( \dd{t}/\dd{t} \)
+    
+    \[ e \dd{x^i} = \varrho \dv{x^i}{t} \dd{V} \dd{t} \]
+  }
+  \only<2>{
+    De esta forma se tiene un cuatro-vector, definido como cuatro-vector de corriente
+    
+    \[ j^i = \varrho \dv{x^i}{t} \]
+    
+    Así se puede reescribir el producto \( e\dd{x^i} \) como:
+    
+    \[ e\dd{x^i} = j^i \dd{V}\dd{t} \]
+    
+    Este vector se representa de forma cuatro-dimensional como:
+    
+    \[ j^i = (c\varrho,\vb{j}) \]
+    
+  }
+
+  \only<3>{
+    De esta forma, la parte de la acción de la interacción del campo con la partícula \( S_{mf} \) en términos del cuatro-vector de corriente.
+
+    \[ S_{mf} = -\int_a^b \frac{e}{c} A_k \dd{x^k} \]
+
+    Como ya se obtuvo una expresión de \( e \dd{x^i} \) y aparte se integra en el espacio y tiempo con \( \dd{V}\,c\dd{t} = \dd{\Omega}\)
+
+    \[ S_{mf} = -\frac{1}{c^2}\int_a^b j^k A_k \, \dd{V} \, c \dd{t}  \]
+    
+    \[ S_{mf} = -\frac{1}{c^2}\int_a^b j^k A_k \, \dd{\Omega}  \]
+
+    
+
+  }
+  
+\end{normalframe}
+
+
+
+\begin{normalframe}
+  
+  \frametitle{\textbf{Segundo par de ecuaciones de Maxwell}}
+  
+  \only<1>{
+    Para obtener estas ecuaciones la variación que se aplica es en el campo a través del potencial.
+    
+    La variación se realiza en cantidades covariantes.
+    
+    \[ \var S = \int_a^b \frac{1}{c} \bigg[ \frac{1}{c} j^i \var A_i + \frac{1}{8\pi} F^{ik}\var{F_{ik}}\bigg] \dd{\Omega} = 0 \]
+    
+    Como el tensor electromagnético se construyó como:
+    
+    \[ F_{ik} = \pdv{A_k}{x^i} - \pdv{A_i}{x^k} \]
+  }
+  
+  \only<2>{
+    La variación de la acción es
+    
+    \[ \var S = -\int_a^b \frac{1}{c} \left[ \frac{1}{c} j^i \var A_i + \frac{1}{8 \pi} F^{ik} \pdv{\var A_k}{x^i} - \frac{1}{8 \pi} F^{ik}\pdv{\var A_i}{x^k} \right] \; d\Omega = 0\]
+    
+    En el segundo término se intercambiarán los indice \(i\) y \(k\) y por la antisimetría del tensor electromagnético. \(F^{ik} \rightarrow F^{ki} = -F^{ik} \)
+    
+    \[ \var S = -\int_a^b \frac{1}{c} \left[ \frac{1}{c} j^i \var A_i - \frac{1}{4 \pi} F^{ik}\pdv{\var A_i}{x^k} \right] \; d\Omega = 0\]
+  }
+  
+  \only<3>{
+    Integrando por partes el segundo término y el término sin derivadas se obtiene con ayuda del teorema de Gauss generalizado:
+    
+    \[ \var S = -\frac{1}{c} \int_a^b \left[ \frac{1}{c} j^i + \frac{1}{4 \pi} \pdv{F^{ik}}{x^k} \right] \; \var A_i \, d\Omega - \frac{1}{4\pi c} \oint F^{ik} \var A_i \; dS_k  = 0\]
+    
+    En la segunda integral se usa el teorema de Gauss generalizado:
+    
+    \[ \oint A^i dS_i = \int \pdv{A^i}{x^i} d\Omega \]
+    
+  }
+  
+  \only<4>{
+    Este término se anula ya que el campo es cero en el infinito, quedando así la variación de la acción
+    
+    \[ \var S = -\frac{1}{c} \int_a^b \left[ \frac{1}{c} j^i + \frac{1}{4 \pi} \pdv{F^{ik}}{x^k} \right] \; \var A_i \, d\Omega = 0\]
+    
+    Siendo el integrando igual a cero, quedando
+    
+    \[ \pdv{F^{ik}}{x^k} = - \frac{4\pi}{c} j^i \] 
+  }
+  \only<5>{
+    Esta expresión indica que se realiza la suma en el índice \( k \), si el índice \( i = 1 \) se tiene:
+    
+    \[ \pdv{F^{10}}{x^0} + \pdv{F^{11}}{x^1} + \pdv{F^{12}}{x^2} + \pdv{F^{13}}{x^3}  = - \frac{4\pi}{c} j^1 \] 
+    
+    \[ \frac{1}{c}\pdv{E_x}{t} - \pdv{H_z}{y} + \pdv{H_y}{z}  = - \frac{4\pi}{c} j_x \] 
+    
+    \[ \pdv{H_y}{z} - \pdv{H_z}{y}  = \frac{1}{c}\pdv{E_x}{t} + \frac{4\pi}{c} j_x \]
+    
+    \[ \nabla \cross \vb{H} = \frac{1}{c}\pdv{\vb{E}}{t} + \frac{4\pi}{c} \vb{j} \]
+  }
+  \only<6>{
+    Esta expresión indica que se realiza la suma en el índice \( k \), si el índice \( i = 0 \) se tiene:
+    
+    \[ \pdv{F^{00}}{x^0} + \pdv{F^{01}}{x^1} + \pdv{F^{02}}{x^2} + \pdv{F^{03}}{x^3}  = - \frac{4\pi}{c} j^0 \] 
+    
+    \[ -\pdv{E_x}{x} - \pdv{E_y}{y} - \pdv{E_z}{z}  = - \frac{4\pi}{c} c \varrho \] 
+    
+    \[ \pdv{E_x}{x} + \pdv{E_y}{y} + \pdv{E_z}{z}  = 4\pi \varrho \] 
+    
+    \[ \nabla \cdot \vb{E} = 4\pi \varrho \]
+  }
+  \only<7>{
+    Así, se tiene el segundo par de ecuaciones de Maxwell
+    
+    \[ \pdv{F^{ik}}{x^k} = - \frac{4\pi}{c} j^i \]
+
+    \[ \Downarrow \]
+    
+    \[ \nabla \cross \vb{H} = \frac{1}{c}\pdv{\vb{E}}{t} + \frac{4\pi}{c} \vb{j} \]
+
+    \[ \nabla \cdot \vb{E} = 4\pi \varrho \]
+  }
+  
+\end{normalframe}
+
+\begin{normalframe}
+  
+  \frametitle{\textbf{Conclusión}}
+ 
+  \only<1>{
+    Here are some other equations
+    
+    \[ \epsilon^{iklm}\pdv{F_{lm}}{x^k} = 0 \qquad \pdv{F^{ik}}{x^k} = - \frac{4\pi}{c} j^i \]
+    
+    \[ \Downarrow \]
+    
+    \[ \nabla \cross \vb{E} = - \frac{1}{c}\pdv{\vb{H}}{t} \qquad \nabla \cross \vb{H} = \frac{1}{c}\pdv{\vb{E}}{t} + \frac{4\pi}{c} \vb{j} \]
+
+    \[ \nabla \cdot \vb{H} = 0 \qquad \nabla \cdot \vb{E} = 4\pi \varrho \]
+  }
+  
+\end{normalframe}
+
+\end{document}
